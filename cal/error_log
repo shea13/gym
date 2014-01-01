@@ -1,0 +1,26 @@
+[07-Jan-2013 15:05:12 Europe/Berlin] PHP Warning:  include(inc/imageEntete.php) [<a href='function.include'>function.include</a>]: failed to open stream: No such file or directory in /home/clubgymn/public_html/cal/cours.php on line 17
+[07-Jan-2013 15:05:12 Europe/Berlin] PHP Warning:  include(inc/imageEntete.php) [<a href='function.include'>function.include</a>]: failed to open stream: No such file or directory in /home/clubgymn/public_html/cal/cours.php on line 17
+[07-Jan-2013 15:05:12 Europe/Berlin] PHP Warning:  include() [<a href='function.include'>function.include</a>]: Failed opening 'inc/imageEntete.php' for inclusion (include_path='.:/usr/lib/php:/usr/local/lib/php') in /home/clubgymn/public_html/cal/cours.php on line 17
+[07-Jan-2013 15:05:12 Europe/Berlin] PHP Warning:  include(menu.php) [<a href='function.include'>function.include</a>]: failed to open stream: No such file or directory in /home/clubgymn/public_html/cal/cours.php on line 19
+[07-Jan-2013 15:05:12 Europe/Berlin] PHP Warning:  include(menu.php) [<a href='function.include'>function.include</a>]: failed to open stream: No such file or directory in /home/clubgymn/public_html/cal/cours.php on line 19
+[07-Jan-2013 15:05:12 Europe/Berlin] PHP Warning:  include() [<a href='function.include'>function.include</a>]: Failed opening 'menu.php' for inclusion (include_path='.:/usr/lib/php:/usr/local/lib/php') in /home/clubgymn/public_html/cal/cours.php on line 19
+[07-Jan-2013 15:05:12 Europe/Berlin] PHP Warning:  include(divr.php) [<a href='function.include'>function.include</a>]: failed to open stream: No such file or directory in /home/clubgymn/public_html/cal/cours.php on line 46
+[07-Jan-2013 15:05:12 Europe/Berlin] PHP Warning:  include(divr.php) [<a href='function.include'>function.include</a>]: failed to open stream: No such file or directory in /home/clubgymn/public_html/cal/cours.php on line 46
+[07-Jan-2013 15:05:12 Europe/Berlin] PHP Warning:  include() [<a href='function.include'>function.include</a>]: Failed opening 'divr.php' for inclusion (include_path='.:/usr/lib/php:/usr/local/lib/php') in /home/clubgymn/public_html/cal/cours.php on line 46
+[07-Jan-2013 15:05:12 Europe/Berlin] PHP Warning:  include(inc/footer.php) [<a href='function.include'>function.include</a>]: failed to open stream: No such file or directory in /home/clubgymn/public_html/cal/cours.php on line 52
+[07-Jan-2013 15:05:12 Europe/Berlin] PHP Warning:  include(inc/footer.php) [<a href='function.include'>function.include</a>]: failed to open stream: No such file or directory in /home/clubgymn/public_html/cal/cours.php on line 52
+[07-Jan-2013 15:05:12 Europe/Berlin] PHP Warning:  include() [<a href='function.include'>function.include</a>]: Failed opening 'inc/footer.php' for inclusion (include_path='.:/usr/lib/php:/usr/local/lib/php') in /home/clubgymn/public_html/cal/cours.php on line 52
+[07-Jan-2013 23:33:59 Europe/Berlin] PHP Warning:  imagecreatefromjpeg() [<a href='function.imagecreatefromjpeg'>function.imagecreatefromjpeg</a>]: gd-jpeg, libjpeg: recoverable error: Premature end of JPEG file
+ in /home/clubgymn/public_html/cal/ecriture.php on line 23
+[07-Jan-2013 23:33:59 Europe/Berlin] PHP Warning:  imagecreatefromjpeg() [<a href='function.imagecreatefromjpeg'>function.imagecreatefromjpeg</a>]: 'retaille/11/cal2.jpg' is not a valid JPEG file in /home/clubgymn/public_html/cal/ecriture.php on line 23
+[07-Jan-2013 23:33:59 Europe/Berlin] PHP Warning:  imagealphablending() expects parameter 1 to be resource, boolean given in /home/clubgymn/public_html/cal/ecriture.php on line 36
+[07-Jan-2013 23:33:59 Europe/Berlin] PHP Warning:  imagesavealpha() expects parameter 1 to be resource, boolean given in /home/clubgymn/public_html/cal/ecriture.php on line 37
+[07-Jan-2013 23:33:59 Europe/Berlin] PHP Warning:  imagecopyresampled() expects parameter 2 to be resource, boolean given in /home/clubgymn/public_html/cal/ecriture.php on line 48
+[07-Jan-2013 23:33:59 Europe/Berlin] PHP Warning:  imagedestroy() expects parameter 1 to be resource, boolean given in /home/clubgymn/public_html/cal/ecriture.php on line 59
+[07-Jan-2013 23:34:00 Europe/Berlin] PHP Warning:  imagecreatefromjpeg() [<a href='function.imagecreatefromjpeg'>function.imagecreatefromjpeg</a>]: gd-jpeg, libjpeg: recoverable error: Premature end of JPEG file
+ in /home/clubgymn/public_html/cal/ecriture.php on line 23
+[07-Jan-2013 23:34:00 Europe/Berlin] PHP Warning:  imagecreatefromjpeg() [<a href='function.imagecreatefromjpeg'>function.imagecreatefromjpeg</a>]: 'retaille/11/cal3.jpg' is not a valid JPEG file in /home/clubgymn/public_html/cal/ecriture.php on line 23
+[07-Jan-2013 23:34:00 Europe/Berlin] PHP Warning:  imagealphablending() expects parameter 1 to be resource, boolean given in /home/clubgymn/public_html/cal/ecriture.php on line 36
+[07-Jan-2013 23:34:00 Europe/Berlin] PHP Warning:  imagesavealpha() expects parameter 1 to be resource, boolean given in /home/clubgymn/public_html/cal/ecriture.php on line 37
+[07-Jan-2013 23:34:00 Europe/Berlin] PHP Warning:  imagecopyresampled() expects parameter 2 to be resource, boolean given in /home/clubgymn/public_html/cal/ecriture.php on line 48
+[07-Jan-2013 23:34:00 Europe/Berlin] PHP Warning:  imagedestroy() expects parameter 1 to be resource, boolean given in /home/clubgymn/public_html/cal/ecriture.php on line 59

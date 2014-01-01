@@ -1,0 +1,2 @@
+User-Agent: *
+Disallow: http://clubgymniquefosseen.agsahosting.com/forum

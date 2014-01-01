@@ -1,0 +1,328 @@
+@charset "windows-1252";
+/* CSS Document */
+
+body, input, select, textarea {
+	font-family: arial, sans-serif;
+	color:#CCCCCC
+}
+
+body, h1, h2, h3, ul, li, p, hr {
+    border: medium none;
+    margin: 0;
+    padding: 0;
+
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-size: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+a:hover {
+	text-decoration: underline;
+}
+
+img {
+	border: none;
+}
+
+ol, ul, li { 
+    font-size: 80%;
+    list-style: none outside none;
+    margin: 0;
+}
+
+.liensDroit, #mainFooter a {
+    color: white;
+}
+
+#grandContainer {
+    background-color:#D73EAB
+}
+#container {
+    margin: 0 auto;
+    min-height: 100%;
+    position: relative;
+    width: 980px;
+	background-color:#000000
+}
+
+
+
+#divDeDroite {
+ float: right;
+    overflow: hidden;
+    padding-left: 19px;
+    padding-top: 39px;
+	margin-right: 7px;
+    width: 265px;
+}
+
+#divDeGauche {
+    float: left;
+    overflow: hidden;
+    padding-bottom: 15px;
+    width: 685px;
+}
+	
+hr {
+	display: none;
+}
+
+.divGris {
+    background-image: url("/images/divGris.gif");
+    border-bottom: 1px solid #BABABA;
+    border-top: 1px solid #BABABA;
+    float: left;
+    font-family: arial,sans-serif;
+    font-size: 15px;
+    height: 22px;
+    /* margin-left: -15px; */
+    overflow: hidden;
+    width: 100%;
+}
+
+.menuGeneral a{
+    float: left;
+    padding: 2px 7px 0;
+    color: #0B2051;
+    font-size: 90%;
+    font-weight: bold;
+    height: 100%;
+    padding: 3px 15px;
+    text-align: center;
+}
+
+.trait {
+    background-image: url("/images/trait.gif");
+    height: 21px;
+    overflow: hidden;
+    width: 1px;
+	float:left;
+}
+#imgGymMiddle {
+	height: 140px;
+    left: 56px;
+    position: absolute;
+    top: 0;
+}
+
+#mainFooter {
+	padding: 10px;
+	background: url("/images/degRose.jpg") repeat-x scroll 0 0 #FFFF33;
+	
+}
+
+
+.liensDiscipline a:hover {
+	font-style: italic;
+}
+
+.cadre {
+		border: 1px solid #FFFFFF;
+		padding: 10px;
+		margin: 10px;
+}
+
+.cadre a, #tableCours a{
+		color:#CCCCCC;
+		text-decoration: underline;
+}
+
+.cadre a:hover, #tableCours a:hover{
+		color:#CCCCCC;
+		text-decoration: none;
+}
+
+
+.gradient {
+	/* Anciens navigateurs */
+	background: #000000 url("gradient-bg.png") repeat-y left;
+	-o-background-size: 100% 100%;
+	-moz-background-size: 100% 100%;
+	-webkit-background-size: 100% 100%;
+	background-size: 100% 100%;
+	/* Internet Explorer */
+	*background: #000000;
+	background: #000000\0/;
+	filter: progid:DXImageTransform.Microsoft.gradient(gradientType=1, startColorstr=#FFD73EAB, endColorstr=#FF000000);
+	}
+	@media all and (min-width: 0px) {
+		.gradient {
+			/* Opera */
+			background: #000000 url("gradient-bg.svg");
+			/* Navigateurs récents */
+			background-image: -webkit-gradient(
+				linear,
+				left bottom, right top,
+				from(#D73EAB),
+				to(#000000)
+			);
+			background-image: -webkit-linear-gradient(
+				left bottom,
+				#D73EAB,
+				#000000
+			);
+			background-image: -moz-linear-gradient(
+				left bottom,
+				#D73EAB,
+				#000000
+			);
+			background-image: -o-linear-gradient(
+				left bottom,
+				#D73EAB,
+				#000000
+			);
+			background-image: linear-gradient(
+				left bottom,
+				#D73EAB,
+				#000000
+			);
+		}
+	}
+	
+	
+#ligneDiv {
+	padding: 10px;
+	float: left;
+	width: 208px;
+}
+
+.actualite {
+	margin-top: 8px;
+	padding: -5px;
+	width: 241px;
+}
+
+.titreActualite {
+	color: white;
+	font-size: 95%;
+	background-color:#D73EAB ;
+	padding: 6px 6px 6px 9px;
+	height: 14px;
+	width: 241px;
+}
+
+.titreActualite a {
+	float: right;
+	cursor: pointer;
+}
+
+
+
+.blanc {
+	height:9px;
+	overflow: hidden;
+	font-size: 0%;
+}
+
+.actualite .ulActualite .printActu{
+	font-size: 75%;
+	color: #3B3B3B;
+	padding: 0 4px;
+}
+.actuIndex {
+	font-size: 65%;
+	color: #00305F;
+	padding: 0 4px;
+}
+
+.actuIndex a {
+	text-decoration:none;
+	color: #00305F;
+}
+
+.actuIndex a:hover {
+    text-decoration:underline;
+	color: #00305F;
+	font-style:normal;
+}
+
+.actualite .ulActualite .printActu li {
+	padding-bottom: 6px;
+	height: 1%;
+}
+ #liTitre{
+	margin: 0px 0px 0px 10px;
+}
+
+.actualite .ulActualite  a {
+	color: white;
+}
+#H3titre a {
+	color: white;
+	text-decoration: underline; 
+	margin: 0px 0px 0px -2px;
+}
+
+#H3titre a:hover{
+	color: white;
+	text-decoration: none;
+}
+
+#numPage{color:#D73EAB;}
+
+.titreAgenda{  background-color: #D73EAB; font-weight:bold; color:#FFFFFF; padding:8px 5px 5px 5px;}
+.contenuAgenda{ width: 250px ; border: 1px solid #D73EAB;}
+.contenuAgenda a{
+	color: white;
+	text-decoration: none;
+ }
+
+.BordureInterieurAgenda{border-bottom: 2px solid #D73EAB; }	  
+.BordureInterieurAgendaepai{border-bottom:2px solid #D73EAB;}	 
+
+.pages {
+	background-color: white;
+	border: 1px solid #D73EAB;
+	color: #3B3B3B;
+	padding: 3px 3px 2px 3px;
+	font-size: 70%;
+	width: 242px;
+	height: 15px;
+}
+
+.pages img {
+	vertical-align: -.2em;
+}
+.pages .suivante {
+	float: left;
+	height:50px;
+}
+.liensDroit  a {
+	color: white;
+}
+/* STYLES FOOTER */
+
+#mainFooter p {text-align:center;font-size:10px;margin:0 auto 25px auto;background: transparent  no-repeat left 0px;width:575px;padding:4px 0 0 0;height:22px;}
+
+#contourFooter {margin:15px auto 2px auto;padding:10px 0 9px 0;width:950px;border-top:1px solid #cacaca;}
+#footer {width:970px;margin: 0 auto;}
+
+.tagFooter {font-weight:normal;color:#c5c5c5;font-size:9px;display:block;margin:5px 0 0 0;}
+
+
+
+#contenuFooter {margin-left: 10px;padding-bottom:15px;}
+#contenuFooter LI {font-size:12px;font-weight: bold;float: left;line-height:16px;}
+#contenuFooter LI A {font-size:11px;font-weight:normal;text-decoration: none;}
+#contenuFooter A:hover {text-decoration: underline;}
+
+#footerLogo {margin: 0px 20px 15px 5px;}
+#footerLogo SPAN {font-size:11px;font-weight:normal;}
+.drapeaux {margin: 5px 2px 0px 0px;_margin: 5px 1px 0px 0px;display:inline-block;}
+
+
+#footer1 {margin: 0px 22px 15px 0px;padding-left:15px;padding-top:10px;height:75px;}
+#footer2 {margin: 0px 22px 15px 0px;padding-left:15px;padding-top:10px;height:75px;}
+#footer3 {margin: 0px 22px 15px 0px;padding-left:15px;padding-top:10px;height:75px;}
+#footer4 {margin: 0px 22px 15px 0px;padding-left:15px;padding-top:10px;height:75px;}
+#footer5 {margin: 0px 7px 15px 0px;padding-left:15px;padding-top:10px;height:75px;}
+
+#facebook {background:url(../images/icoFTA.gif) no-repeat scroll left -1px transparent;line-height:18px;padding:0 0 0 18px;}
+
+.clearBoth {
+ clear:both;
+}

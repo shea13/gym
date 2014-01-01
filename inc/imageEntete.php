@@ -1,0 +1,1 @@
+<img src="../images/entete2012.png" style="border: 0px none;" alt="" title="" align="middle" >

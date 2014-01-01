@@ -1,0 +1,374 @@
+.divGris {
+    background-image: url("/images/divGris.gif");
+    border-bottom: 1px solid #BABABA;
+    border-top: 1px solid #BABABA;
+    overflow: hidden;
+	height: 22px;
+    width: 967px;
+	margin-left:-15px; 
+	float:left;
+	font-size:15px;
+	font-family:	arial,sans-serif
+}
+
+.menuGeneral a{
+    float: left;
+    padding: 2px 7px 0;
+    color: #0B2051;
+    font-size: 90%;
+    font-weight: bold;
+    height: 100%;
+    padding: 3px 15px;
+    text-align: center;
+}
+
+.trait {
+    background-image: url("/images/trait.gif");
+    height: 21px;
+    overflow: hidden;
+    width: 1px;
+	float:left;
+}
+body, input, select, textarea {
+	font-family: arial, sans-serif;
+}
+
+a {
+	text-decoration: none;
+}
+a:hover {
+	text-decoration: underline;
+}
+img {
+	border: none;
+}
+hr, caption {
+	display: none;
+}
+body, h1, h2, h3, ul, li,  p,  hr {
+	padding: 0;
+	margin:0;
+	border: none;
+}
+ol, ul, li {
+	list-style: none;
+	margin: 0px;
+	color: #00305F;
+	font-size: 80%;
+}
+.li a, {
+	color: black;
+	font-size: 80%;
+}
+h1, h2, h3, h4, h5, h6 {
+	font-size: 100%;
+}
+
+.menu td a {
+	padding: 3px 15px;
+	font-size: 90%;
+	color: #0B2051;
+	font-weight: bold;
+	text-align:center;
+	display:block;
+	background: white repeat-x 0 100%;
+	height: 100%;
+}
+.menuarrondiDroite {
+
+	
+	background:url(arrondimenuhautDroite.png) no-repeat
+}
+.sousmenu td a {
+	padding: 3px 15px;
+	font-size: 90%;
+	color: #0B2051;
+	font-weight: bold;
+	text-align:center;
+	display:block;
+	background: #EEEEEE repeat-x 0 100%;
+	height: 100%;
+}
+
+table.cours {
+	border-width: 1px;
+	border-spacing: 0px;
+	border-style: solid;
+	border-color: black;
+	border-collapse: separate;
+	background-color: white;
+}
+table.cours th {
+	border-width: 1px;
+	padding: 5px;
+	border-style: outset;
+	border-color: gray;
+	background-color: white;
+	-moz-border-radius: 0px 0px 0px 0px;
+}
+table.cours td {
+	border-width: 1px;
+	padding: 5px;
+	border-style: outset;
+	border-color: gray;
+	background-color: white;
+	-moz-border-radius: 0px 0px 0px 0px;
+}
+
+.classmenu a {
+	padding: 3px 15px;
+	font-size: 90%;
+	color: #0B2051;
+	font-weight: bold;
+	text-align:center;
+	display:block;
+	background: white repeat-x 0 100%;
+	height: 100%;
+}
+
+.menuHautHp {
+	padding-bottom: 2px;
+	margin: 0 5px;
+}
+.menuHautHpContenu {
+	position: relative;
+}
+.menu td {
+	text-align: center;
+	padding-left: 1px;
+	vertical-align: middle;
+}
+
+.classmenu {
+	text-align: center;
+	background:  repeat-y;
+	padding-left: 1px;
+	vertical-align: middle;
+}
+
+.menu .lienAccHoriz {
+	width: 1%;
+	border-left: none;
+	padding: 0;
+}
+.menu .lienAccHoriz a {
+	padding: 0;
+}
+
+.titre2
+{
+	padding:1px 8px 1px	;
+	padding-bottom:1px ;
+    font-size: 1.0em;
+    font-weight: normal;
+    line-height: 1.6em;
+	width: 50px;
+}
+
+ .violet
+{
+	text-transform:uppercase;
+	background-color: #330033;
+	color:#FF99CC
+}
+
+.p
+{
+	font-size: 0.2em;
+	padding-bottom:1px ;
+}
+
+#csall {
+	width: 960px;
+	margin: 0 auto;
+	padding-bottom: 20px;
+}
+
+#csleft {
+	float: left;
+	width: 665px;
+	background: url repeat;
+	padding-bottom: 15px;
+	overflow: hidden;
+}
+#csright {
+	float: right;
+	width: 275px;
+	overflow: hidden;
+	padding-left: 19px; 
+	padding-top:39px;
+}
+
+
+#csleft .menuHautHpContenu {
+	padding: 0 5px;
+}
+
+#csleft .menuHautHpContenu td a {
+	padding: 3px 5px;
+}
+#csleft .menuHautHpContenu #lilast a {
+	padding: 0;
+}
+#csleft .menuHautHpContenu .lilastDegrade {
+	padding: 3px 0 3px 11px;
+}
+
+
+#imgGymMiddle {
+	text-align: center;
+}
+
+#lignesDiv {
+	padding: 10px;
+	border: 1px solid #330033;
+	background: url("/images/degRose.jpg") repeat-x scroll 0 0 #FFFFFF;
+	
+}
+
+#ligneDiv {
+	padding: 10px;
+	float: left;
+	width: 208px;
+}
+
+.actualite {
+	margin-top: 8px;
+	padding: -5px;
+	width: 241px;
+}
+
+.titreActualite {
+	color: white;
+	font-size: 95%;
+	background-color:#660033 ;
+	padding: 6px 6px 6px 9px;
+	height: 14px;
+	width: 241px;
+}
+
+.titreActualite a {
+	float: right;
+	cursor: pointer;
+}
+.blanc {
+	height:9px;
+	overflow: hidden;
+	font-size: 0%;
+}
+
+.actualite .ulActualite .printActu{
+	font-size: 75%;
+	color: #3B3B3B;
+	padding: 0 4px;
+}
+.actuIndex {
+	font-size: 65%;
+	color: #00305F;
+	padding: 0 4px;
+}
+.actualite .ulActualite .printActu li {
+	padding-bottom: 6px;
+	height: 1%;
+}
+ #liTitre{
+	margin: 0px 0px 0px 10px;
+}
+
+.actualite .ulActualite  a {
+	color: black;
+}
+#H3titre a {
+	color: black;
+	text-decoration: underline; 
+	margin: 0px 0px 0px -2px;
+}
+
+#H3titre a:hover{
+	color: black;
+	text-decoration: none;
+}
+
+#numPage{color:#660033;}
+
+.titreAgenda{  background-color: #660033; font-weight:bold; color:#FFFFFF; padding:8px 5px 5px 5px;}
+.contenuAgenda{ width: 250px ; border: 1px solid #660033;}
+.contenuAgenda a{
+	color: white;
+	text-decoration: none;
+ }
+
+.BordureInterieurAgenda{border-bottom: 2px solid #660033; }	  
+.BordureInterieurAgendaepai{border-bottom:2px solid #660033;}	 
+
+.pages {
+	background-color: white;
+	border: 1px solid #660033;
+	color: #3B3B3B;
+	padding: 3px 3px 2px 3px;
+	font-size: 70%;
+	width: 242px;
+	height: 15px;
+}
+
+.pages img {
+	vertical-align: -.2em;
+}
+.pages .suivante {
+	float: left;
+	height:50px;
+}
+.liensDroit  a {
+	color: black;
+}
+/* STYLES FOOTER */
+
+#mainFooter p {text-align:center;font-size:10px;margin:0 auto 25px auto;background: transparent  no-repeat left 0px;width:575px;padding:4px 0 0 0;height:22px;}
+
+#contourFooter {margin:15px auto 2px auto;padding:10px 0 9px 0;width:950px;border-top:1px solid #cacaca;}
+#footer {width:970px;margin: 0 auto;}
+
+.tagFooter {font-weight:normal;color:#c5c5c5;font-size:9px;display:block;margin:5px 0 0 0;}
+
+
+
+#contenuFooter {margin-left: 10px;padding-bottom:15px;}
+#contenuFooter LI {font-size:12px;font-weight: bold;float: left;line-height:16px;}
+#contenuFooter LI A {font-size:11px;font-weight:normal;text-decoration: none;}
+#contenuFooter A:hover {text-decoration: underline;}
+
+#footerLogo {margin: 0px 20px 15px 5px;}
+#footerLogo SPAN {font-size:11px;font-weight:normal;}
+.drapeaux {margin: 5px 2px 0px 0px;_margin: 5px 1px 0px 0px;display:inline-block;}
+
+
+#footer1 {margin: 0px 22px 15px 0px;padding-left:15px;padding-top:10px;height:75px;}
+#footer2 {margin: 0px 22px 15px 0px;padding-left:15px;padding-top:10px;height:75px;}
+#footer3 {margin: 0px 22px 15px 0px;padding-left:15px;padding-top:10px;height:75px;}
+#footer4 {margin: 0px 22px 15px 0px;padding-left:15px;padding-top:10px;height:75px;}
+#footer5 {margin: 0px 7px 15px 0px;padding-left:15px;padding-top:10px;height:75px;}
+
+#facebook {background:url(../images/icoFTA.gif) no-repeat scroll left -1px transparent;line-height:18px;padding:0 0 0 18px;}
+#twitter {background:url(../images/icoFTA.gif) no-repeat scroll left -19px transparent;line-height:18px;padding:0 0 0 18px;}
+#blogAbritel {background:url(../images/icoFTA.gif) no-repeat scroll left -37px transparent;line-height:18px;padding:0 0 0 18px;}
+
+.contenuUrgent {
+    background: none repeat scroll 0 0 white;
+    border: 10px solid #CC3300;
+    padding: 10px;
+    width: 210px;
+	font-size: 12px;
+}
+
+
+
+.titreUrgent {
+    background-color: #CC3300;
+    color: #FFFFFF;
+    font-weight: bold;
+    padding: 8px 5px 5px;
+}
+
+#printUrgent{
+	font-size: 17px;
+}
