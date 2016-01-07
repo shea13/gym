@@ -23,27 +23,27 @@
         <table width="100%">
           <tr>
             <td><strong>Par Tél </strong></td>
-            <td>06 42 44 28 18 </td>
+            <td>06 26 87 42 28 </td>
             <td>Présidente</td>
           </tr>
           <tr>
             <td>&nbsp;</td>
-            <td>06 61 97 11 57 </td>
+            <td>06 23 11 07 64 </td>
             <td>Vice-Présidente</td>
           </tr>
           <tr>
             <td>&nbsp;</td>
-            <td>06 83 75 42 49 </td>
-            <td>Membre actif</td>
+            <td>06 23 08 12 42 </td>
+            <td>Secrétaire</td>
           </tr>
-          <tr>
+         <!-- <tr>
             <th align="left">Par email</th>
           </tr>
           <tr>
             <td>&nbsp;</td>
             <td><a href="mailto:clubgymniquefosseen@yahoo.fr">clubgymniquefosseen@yahoo.fr</a></td>
             <td>&nbsp;</td>
-          </tr>
+          </tr>-->
           <tr>
             <th align="left">Siège Social</th>
           </tr>

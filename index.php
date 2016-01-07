@@ -28,7 +28,6 @@
 		include("inc/actualites.php");
 		?>
         <br/>
-        <img border="0" src="2013/infos2013-2014.jpg" style="width:90%; height:90%;  margin: 30px;" align="center"/>
         <div class="actuIndex">
           <p><br/>
             <a href="archives.php" style="text-decoration:underline">Archives</a><br/>

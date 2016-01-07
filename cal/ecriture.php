@@ -1,17 +1,17 @@
- <?php
-/*  plante sur e-clicking a decommenter si en local
+ <?php session_start();
+
 error_reporting(E_ALL & ~E_NOTICE);
 ini_set('display_errors','On');
  if(empty($_GET["mois"])) {
      die(" mois n'est pas rempli");
  }
  
- */
+
 
 function redimensionner ($img_url, $largeur)
 {
 	$erreur = "";
-    // Déterminer l'extension à  partir du nom de fichier
+    // Dï¿½terminer l'extension ï¿½ partir du nom de fichier
     $extension = substr($img_url, - 3);
     // Afin de simplifier les comparaisons, on met tout en minuscule
     $extension = strtolower($extension);
@@ -29,26 +29,26 @@ function redimensionner ($img_url, $largeur)
             $src_im = imagecreatefrompng($img_url);
             break;
         default:
-            $erreur =  "<br>L'image $img_url n'est pas dans un format reconnu. Extensions autorisées : jpg/jpeg, gif, png";
+            $erreur =  "<br>L'image $img_url n'est pas dans un format reconnu. Extensions autorisï¿½es : jpg/jpeg, gif, png";
             return false;
             break;
     }
     ImageAlphaBlending($src_im, true);
     imagesavealpha($src_im, true);
-    // Récupà¨re les dimensions de l'image
+    // Rï¿½cupï¿½re les dimensions de l'image
     $size = GetImageSize($img_url);
     $src_w = $size[0];
     $src_h = $size[1];
     // Taille de votre image
     $dst_w = $largeur;
-    // Contraint le rééchantillonage à  une largeur fixe et maintient le ratio de l'image
+    // Contraint le rï¿½ï¿½chantillonage ï¿½ une largeur fixe et maintient le ratio de l'image
     $dst_h = round(($dst_w / $src_w) * $src_h);
     $dst_im = ImageCreateTrueColor($dst_w, $dst_h);
-    // ImageCopyResampled copie et rééchantillonne l'image originale
+    // ImageCopyResampled copie et rï¿½ï¿½chantillonne l'image originale
     ImageCopyResampled($dst_im, $src_im, 0, 0, 0, 0, $dst_w, $dst_h, $src_w, $src_h);
     ImageAlphaBlending($dst_im, true);
     imagesavealpha($dst_im, true);
-    $noir = imagecolorallocate($dst_im, 251, 230, 247); //On réalloue du noir, l'image ayant été modifiée.
+    $noir = imagecolorallocate($dst_im, 251, 230, 247); //On rï¿½alloue du noir, l'image ayant ï¿½tï¿½ modifiï¿½e.
     //imagecolortransparent($dst_im, $noir); //Le noir devient transparent
 
     imagejpeg($dst_im, $img_url);
@@ -64,10 +64,7 @@ if (empty($_GET["mois"]))
     die(" mois n'est pas rempli");
 }
 $cheminPourArriverJusquauCal = "/cal/an/" . str_pad($_GET["mois"], 2, "0", STR_PAD_LEFT) . "/";
-$Fnm = $cheminPourArriverJusquauCal . "cal2.php";
-$td = '<!-- td -->'; //debut de ligne
-$img = '<!-- img -->'; // separateur d'image
-$text1 = '<img src="<?php echo $cheminPourArriverJusquauCal;?>carre.jpg"<?php echo $dimImg;?> />';
+
 if ((!is_file("retaille/" . str_pad($_GET["mois"], 2, "0", STR_PAD_LEFT) . "/cal" . ($a = $_GET["leCompteur"] + 1))) ||(!empty($_GET["retailleJeTeDis"])))
 {
     $cheminDir = "retaille/" . str_pad($_GET["mois"], 2, "0", STR_PAD_LEFT);
@@ -85,55 +82,109 @@ if ((!is_file("retaille/" . str_pad($_GET["mois"], 2, "0", STR_PAD_LEFT) . "/cal
         }
     }
 }
-$text2 = '<img src="/cal/retaille/<?php print str_pad($moisEncours, 2, "0", STR_PAD_LEFT) . "/cal" . ($cpt++)?>.jpg"<?php echo $dimImg;?> />';
-$arrayFichierLu = array($cheminPourArriverJusquauCal . "cal.php" => $cheminPourArriverJusquauCal . "cal2.php", $cheminPourArriverJusquauCal . "cal2.php" => $cheminPourArriverJusquauCal . "cal.php");
-if (isset($_GET["qui"]))
-{
-    $Fnm = $cheminPourArriverJusquauCal . $_GET["qui"];
-}
+
 $change = false;
-if (isset($_GET["change"]))
-{
-    $change = (int) $_GET["change"];
-    $td = '<!-- td' . $change . ' -->'; //debut de ligne
+$tout = false;
+$vide = false;
+if(isset($_GET["change"])){
+ 	$change = (int)$_GET["change"];
 }
-$onredirigeVers = $cheminPourArriverJusquauCal . $_GET["qui"] . "?mois=" . $_GET["mois"] . "&LeCompteur=" . $_GET["LeCompteur"];
-print "<br/>Changement voulu pour " . $change . " dans le fichier " . $_GET["qui"] . "?mois=" . $_GET["mois"] . "&LeCompteur=" . $_GET["LeCompteur"];
-if (! $fp = fopen($_SERVER["DOCUMENT_ROOT"] . $arrayFichierLu[$Fnm], "r"))
+ 
+if(isset($_GET["tout"])){
+ 	$tout = true;
+ 	$_SESSION ["leCompteurDimage"] = 1;
+}
+ 
+if(isset($_GET["vide"])){
+ 	 $vide = true;
+ 	 $_SESSION ["leCompteurDimage"] = 1;
+}
+
+$montreLaDerniereLigne = "";
+if (isset ( $_GET ["montreLaDerniereLigne"] )) {
+	$montreLaDerniereLigne = "&montreLaDerniereLigne=1";
+}
+$ajouteXLigneGet = "";
+$ajouteXLignes= 0;
+if (isset ( $_GET ["ajouteXLigne"] )) {
+	$ajouteXLignes = ( int ) $_GET ["ajouteXLignes"];
+	$ajouteXLigneGet = "&ajouteXLigne=". $_GET ["ajouteXLigne"];
+}
+$parametresSuite = $montreLaDerniereLigne.$ajouteXLigneGet;
+if ($_GET ["grand"] == "1") {
+	$parametresSuite .= "&grand=1";
+}
+$onredirigeVers = $cheminPourArriverJusquauCal . $_GET["qui"] . "?mois=" . $_GET["mois"] . "&leCompteur=" . $_GET["leCompteur"].$parametresSuite;
+print "<br/>Changement voulu pour " . $change . " dans le fichier " . $_GET["qui"] . "?mois=" . $_GET["mois"] . "&leCompteur=" . $_GET["leCompteur"].$parametresSuite;
+
+$Fnm = $_SERVER["DOCUMENT_ROOT"] .  $cheminPourArriverJusquauCal . "jourAvecPhotos.php";
+if (! $fp = fopen($Fnm, "r"))
 {
-    "<br> erreur de lecture du fichier ($Fnm) => " . $_SERVER["DOCUMENT_ROOT"] . $arrayFichierLu[$Fnm] . " <br>";
+    "<br> erreur de lecture du fichier ($Fnm) <br>";
     exit();
 }
+
+$ilYaUnePhoto = ' = true;';
+$ilNYaPasUnePhoto = ' = false;';
+$nouvelleLigne = "";
+
+print "<br><br> seession ".$_SESSION["leCompteurDimage"];
+
 //lecture du fichier
 while (! feof($fp))
-{ //on parcourt toutes les lignes
-    $ligne = fgets($fp, 4096);
-    if ($change)
-    { // on veut changer un td
-        if (preg_match("/" . $td . "/", $ligne))
-        {
-            print "<br><br> on a trouve " . htmlentities($td) . " dans <br>" . htmlentities($ligne) . "<br>";
-            if (strpos($ligne, $text1) !== false)
-            {
-                $ligne = str_replace($text1, $text2, $ligne);
-                print "<br>  on a trouve text1 =><br>" . htmlentities($text1) . " <br>On va le changer en =><br>" . htmlentities($text2) . " ";
-            }
-            elseif (strpos($ligne, $text2) !== false)
-            {
-                $ligne = str_replace($text2, $text1, $ligne);
-                print "<br> on a trouve text2 =><br>" . htmlentities($text2) . " <br>On  va le changer en =><br>" . htmlentities($text1) . " ";
-            }
-            else
-            {
-                print "<br> ni " . htmlentities($text1) . " <br> ni" . htmlentities($text2) . " trouve ";
-            }
-        }
-    }
-    $page .= $ligne; // lecture du contenu de la ligne
-}
+{ // on parcourt toutes les lignes
+		$ligne = fgets ( $fp, 4096 );
+		
+		if ($change) { // on veut changer une photo
+			$onCherche = '$arrayPhotoOuCarre[' . $change . ']';
+			$nouvelleLigne = $onCherche . $ilYaUnePhoto;
+			if (strpos ( $ligne, $onCherche ) !== false) {
+				print "<br><br> on a trouve " . $onCherche . " dans =>" . htmlentities ( $ligne ) . "<br>";
+				if (strpos ( $ligne, $ilYaUnePhoto ) !== false) {
+					print "<br> il y avait une photo <br>";
+					$nouvelleLigne = $onCherche . $ilNYaPasUnePhoto;
+				} else {
+					print "<br> il y avait PAS de photo <br>";
+					$limage = "http://" . $_SERVER['HTTP_HOST'] . "/cal/retaille/" . str_pad ( $_GET ["mois"], 2, "0", STR_PAD_LEFT ) . "/cal" . $_SESSION ["leCompteurDimage"] . ".jpg";
+					if (! getimagesize ( $limage )) {
+						$nouvelleLigne = $onCherche . $ilNYaPasUnePhoto;
+						print '<script language="javascript" type="text/javascript">
+    						alert("' . $limage . ' N existe PAS !!!");
+    						</script>';
+					}
+				}
+				$ligne = $nouvelleLigne . "\n";
+			}
+		} elseif ($tout) {	
+			
+			$onCherche = '$arrayPhotoOuCarre';
+			if (strpos ( $ligne, $onCherche ) !== false) {
+				
+				if(preg_match('|arrayPhotoOuCarre\[([0-9]*)|', $ligne, $matches)) {
+					if(isset($matches[1])) {
+						$numeroPhoto = $matches[1];
+					}
+				}
+				$limage = "http://" . $_SERVER['HTTP_HOST'] . "/cal/retaille/" . str_pad ( $_GET ["mois"], 2, "0", STR_PAD_LEFT ) . "/cal" . $numeroPhoto . ".jpg";
+				if (getimagesize ( $limage )) {
+					$ligne = str_replace($ilNYaPasUnePhoto, $ilYaUnePhoto, $ligne);
+					$_SESSION ["leCompteurDimage"]++;
+				} else {
+					$ligne = str_replace($ilYaUnePhoto, $ilNYaPasUnePhoto, $ligne);
+				}
+			}
+		} elseif ($vide) {			
+			$onCherche = '$arrayPhotoOuCarre';
+			if (strpos ( $ligne, $onCherche ) !== false) {
+					$ligne = str_replace($ilYaUnePhoto, $ilNYaPasUnePhoto, $ligne);				
+			}
+		}
+		
+		$page .= $ligne; // lecture du contenu de la ligne
+	}
 //print "<br><br>".htmlentities($page);
 fclose($fp);
-$fp = fopen($_SERVER["DOCUMENT_ROOT"] . $Fnm, "w+"); //lecture du fichier
+$fp = fopen($Fnm, "w+"); //lecture du fichier
 fputs($fp, $page);
 fclose($fp);
 ?>
@@ -144,6 +195,8 @@ print $onredirigeVers;
 ?>';
  parent.close();
  </script>
+
+
 
 
 
