@@ -1,4 +1,4 @@
-fervrier<?php
+<?php
 $arrayPhotoOuCarre[0] = false;
 $arrayPhotoOuCarre[1] = false;
 $arrayPhotoOuCarre[2] = true;

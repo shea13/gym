@@ -129,7 +129,6 @@ $ilNYaPasUnePhoto = ' = false;';
 $nouvelleLigne = "";
 
 print "<br><br> seession ".$_SESSION["leCompteurDimage"];
-
 //lecture du fichier
 while (! feof($fp))
 { // on parcourt toutes les lignes
@@ -176,22 +175,28 @@ while (! feof($fp))
 		} elseif ($vide) {			
 			$onCherche = '$arrayPhotoOuCarre';
 			if (strpos ( $ligne, $onCherche ) !== false) {
-					$ligne = str_replace($ilYaUnePhoto, $ilNYaPasUnePhoto, $ligne);				
+					$ligne = str_replace($ilYaUnePhoto, $ilNYaPasUnePhoto, $ligne);								
 			}
 		}
 		
 		$page .= $ligne; // lecture du contenu de la ligne
 	}
+	
+
 //print "<br><br>".htmlentities($page);
 fclose($fp);
 $fp = fopen($Fnm, "w+"); //lecture du fichier
 fputs($fp, $page);
 fclose($fp);
+
+
+	include $Fnm;
+	$_SESSION["arrayPhotoOuCarre"] = $arrayPhotoOuCarre;
 ?>
 <script language="javascript" type="text/javascript">
 
  window.opener.location='<?php
-print $onredirigeVers;
+print $onredirigeVers."&tp=".time();
 ?>';
  parent.close();
  </script>
