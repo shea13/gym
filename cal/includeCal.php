@@ -120,12 +120,27 @@ $url = 'http://'.$_SERVER["HTTP_HOST"].$_SERVER["SCRIPT_NAME"].'?' . $_GET ["qui
 <title><?php print $mois[$moisEncours]." ".$anEnCours;?></title>
 <script type="text/javascript">
 var fond=<?php print $fond;?>;
-function change(Id)
-
+var addresseDoubleClick = "ecriture";
+function change(Id, cliquee)
 {	
-	cal=window.open("<?php print $cheminPourArriverJusquauCal; ?>ecriture.php?qui=cal.php&change="+Id+"&mois=<?php print $moisEncours;?>&fond="+fond+"&LeCompteur=<?php print $cpt.$retailleJeTeDis.$montreLaDerniereLigne.$ajouteXLigneGet;?>", "pop","width=300, height=300, toolbars=no, scrollbars=yes, menubars=no, status=no");
+	cal=window.open("<?php print $cheminPourArriverJusquauCal; ?>"+addresseDoubleClick+".php?qui=cal.php&change="+Id+"&mois=<?php print $moisEncours;?>&fond="+fond+"&laPhotoCliquee="+cliquee+"&LeCompteur=<?php print $cpt.$retailleJeTeDis.$montreLaDerniereLigne.$ajouteXLigneGet;?>", "pop","width=300, height=300, toolbars=no, scrollbars=yes, menubars=no, status=no");
 	cal.focus();
 }
+
+function rotate()
+{	
+	addresseDoubleClick = "retourne";
+	document.getElementById('retourne').style.display = 'block'; 
+	document.getElementById('retourne2').style.display = 'block'; 
+}
+
+function arreteDetourner()
+{	
+	addresseDoubleClick = "ecriture";
+	document.getElementById('retourne').style.display = 'none'; 
+	document.getElementById('retourne2').style.display = 'none'; 
+}
+
 function changeTout()
 {	
 	cal=window.open("<?php print $cheminPourArriverJusquauCal; ?>ecriture.php?qui=cal.php&tout=1&mois=<?php print $moisEncours;?>&fond="+fond+"&LeCompteur=<?php print $cpt.$retailleJeTeDis.$montreLaDerniereLigne.$ajouteXLigneGet;?>", "pop","width=300, height=300, toolbars=no, scrollbars=yes, menubars=no, status=no");
@@ -320,7 +335,7 @@ for ($iTd=1;$iTd<$nombreDeCase;$iTd++){
 	if(!$arrayPhotoOuCarre[$iTd]) {
 		//c'est un carre
 		//debug : print "<br>c'st un carre".gmdate("D, d M Y H:i:s");
-		$arrayTdPrint = '<!-- td'.$iTd.' -->    <td'.$dimTd.' ondblclick="javascript:change('.$iTd.')"><div class="'; if(($iTd+$x)<=9) {$arrayTdPrint  .=$classDiv1Chiffre;} else {$arrayTdPrint  .=$classDiv2Chiffre;} $arrayTdPrint  .='">'; if((($iTd+$x)>0)&&(($iTd+$x)<=$nbJourDsLeMois[$moisEncours])) $arrayTdPrint  .=($iTd+$x); else {$arrayTdPrint  .= $blanc2chiffres;} $arrayTdPrint  .='</div><div class="'; if(($iTd+$x)<=9) {$arrayTdPrint  .=$classDivImg1;} else {$arrayTdPrint  .=$classDivImg2;} $arrayTdPrint  .='"><!-- img --><img src="'.$cheminPourArriverJusquauCal.'carre.jpg"'.$dimImg.' /><!-- img --></div></td>';
+		$arrayTdPrint = '<!-- td'.$iTd.' -->    <td'.$dimTd.' ondblclick="javascript:change('.$iTd.', 0)"><div class="'; if(($iTd+$x)<=9) {$arrayTdPrint  .=$classDiv1Chiffre;} else {$arrayTdPrint  .=$classDiv2Chiffre;} $arrayTdPrint  .='">'; if((($iTd+$x)>0)&&(($iTd+$x)<=$nbJourDsLeMois[$moisEncours])) $arrayTdPrint  .=($iTd+$x); else {$arrayTdPrint  .= $blanc2chiffres;} $arrayTdPrint  .='</div><div class="'; if(($iTd+$x)<=9) {$arrayTdPrint  .=$classDivImg1;} else {$arrayTdPrint  .=$classDivImg2;} $arrayTdPrint  .='"><!-- img --><img src="'.$cheminPourArriverJusquauCal.'carre.jpg"'.$dimImg.' /><!-- img --></div></td>';
 	} else {
 		// c'est une photo
 		//debug : print "<br>c'st un PHOTO".gmdate("D, d M Y H:i:s");
@@ -332,7 +347,7 @@ for ($iTd=1;$iTd<$nombreDeCase;$iTd++){
 			$classDivImg1 = "divImg3";	
 		}
 		
-		$arrayTdPrint = '<!-- td'.$iTd.' -->    <td'.$dimTd.' ondblclick="javascript:change('.$iTd.')"><div class="'; if(($iTd+$x)<=9) {$arrayTdPrint  .=$classDiv1Chiffre;} else {$arrayTdPrint  .=$classDiv2Chiffre;} $arrayTdPrint  .='">'; if((($iTd+$x)>0)&&(($iTd+$x)<=$nbJourDsLeMois[$moisEncours])) $arrayTdPrint  .=($iTd+$x); else {$arrayTdPrint  .= $blanc2chiffres;} $arrayTdPrint  .='</div><div class="'; if(($iTd+$x)<=9) {$arrayTdPrint  .=$classDivImg1;} else {$arrayTdPrint  .=$classDivImg2;} $arrayTdPrint  .='"><!-- img --><img src="/cal/retaille/'. str_pad($moisEncours, 2, "0", STR_PAD_LEFT) . '/cal' . ($cpt++).'.jpg"'.$laDimImage.' /><!-- img --></div></td>';
+		$arrayTdPrint = '<!-- td'.$iTd.' -->    <td'.$dimTd.' ondblclick="javascript:change('.$iTd.', '.$cpt.')"><div class="'; if(($iTd+$x)<=9) {$arrayTdPrint  .=$classDiv1Chiffre;} else {$arrayTdPrint  .=$classDiv2Chiffre;} $arrayTdPrint  .='">'; if((($iTd+$x)>0)&&(($iTd+$x)<=$nbJourDsLeMois[$moisEncours])) $arrayTdPrint  .=($iTd+$x); else {$arrayTdPrint  .= $blanc2chiffres;} $arrayTdPrint  .='</div><div class="'; if(($iTd+$x)<=9) {$arrayTdPrint  .=$classDivImg1;} else {$arrayTdPrint  .=$classDivImg2;} $arrayTdPrint  .='"><!-- img --><img src="/cal/retaille/'. str_pad($moisEncours, 2, "0", STR_PAD_LEFT) . '/cal' . ($cpt++).'.jpg"'.$laDimImage.' /><!-- img --></div></td>';
 		if(($laDimImage == $dimImgPortrait) &&($iTd<8)){
 			$trVideParceQuilYAUnPortraitDansLaPremiereLigne = '<tr>
 				<td colspan="7">&nbsp;</td>
@@ -361,6 +376,7 @@ function printDim($leCpt, $leDimImg, $leMoisEnCours, $leDimImgPortrait) {
 	return $value;
 }
 ?>
+<div id="retourne" style="disPlay:none;font-size:15px;color:red">Le double click RETOURNE</div>
 <table width="200" border="0" style="position: relative;"
 		cellpadding="1" cellspacing="15">
 
@@ -439,9 +455,21 @@ for($ii = 1; $ii <= 12; $ii ++) {
 <br/>
 <input type="button" value="Mettre plus grand" onclick="javascript:aggrandit()">
 <input type="button" value="Mettre plus petit" onclick="javascript:rapetisse()">
+<br/>
+<input type="button" value="Retourner la photo cliquee" onclick="javascript:rotate()">
+<input type="button" value="Change la photo cliquee" onclick="javascript:arreteDetourner()">
+
+<div id="retourne2" style="disPlay:none;font-size:15px;color:red">Le double click RETOURNE</div>
+
 </body>
 </html>
+
 <?php
+if (isset ( $_GET ["retourne"] )) {
+	print '<script language="javascript" type="text/javascript">
+				rotate();
+		   </script>';
+}
 /*
 FONCTION A TESTER POUR CAPTURE D ECRAN AVEC IE
 $browser = new COM("InternetExplorer.Application");

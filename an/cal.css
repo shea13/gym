@@ -1,0 +1,147 @@
+td, td img {
+    width: 170px;
+    height: 120px;
+    filter: Alpha(opacity=100);
+    -moz-opacity: 1;
+    opacity: 1;
+}
+
+body {
+    font-family: fantasy;
+    font-size: 12px
+}
+
+table {
+    padding: 10px;
+    margin: 10px;
+    font-size: 12px;
+    text-align: center;
+    vertical-align: middle;
+    width: 900px;
+    border-spacing: 0;
+}
+
+.blocOpaque {
+    /* Astuce de création d'un bloc à 60% opaque à l'image de fond */
+    filter: Alpha(opacity=2);
+    -moz-opacity: 0.2;
+    opacity: 0.2;
+    width: 680px;
+    height: 453px;
+    float: left;
+    position: absolute;
+    top: 135px;
+    left: 80px;
+    z-index: 1000;
+}
+
+.divImg1 {
+    float: left;
+    position: relative;
+    top: -23px;
+    left: -6px;
+    z-index: 0;
+    filter: Alpha(opacity=100);
+    -moz-opacity: 1;
+    opacity: 1;
+    padding: 3px;
+}
+
+.divImg2 {
+    float: left;
+    position: relative;
+    top: -23px;
+    left: -4px;
+    z-index: -4px;
+    filter: Alpha(opacity=100);
+    -moz-opacity: 1;
+    opacity: 1;
+    padding: 3px;
+}
+
+.divChiffre1 {
+    float: left;
+    position: relative;
+    top: -18px;
+    left: 8px;
+    z-index: 1;
+    filter: Alpha(opacity=100);
+    -moz-opacity: 1;
+    opacity: 1;
+}
+
+.divChiffre1Img1 {
+    float: left;
+    position: relative;
+    top: 1px;
+    left: 8px;
+    z-index: 1;
+    filter: Alpha(opacity=100);
+    -moz-opacity: 1;
+    opacity: 1;
+}
+
+.divChiffre2Img1 {
+    float: left;
+    position: relative;
+    top: 1px;
+    left: 8px;
+    z-index: 1;
+    filter: Alpha(opacity=100);
+    -moz-opacity: 1;
+    opacity: 1;
+}
+
+.tdCaption {
+    font-size: 12px;
+    font-weight: bold;
+    text-align: left;
+    vertical-align: center;
+    background-color: #663333;
+    color: #FFFFFF
+}
+
+.legende {
+    font-size: 12px;
+    font-weight: bold;
+    text-align: left;
+    border-spacing:0px;
+    vertical-align: center;
+    background-color: #663333;
+    color: #FFFFFF;
+}
+.legende td{
+    height: 40px;
+    margin-bottom: 10px;
+}
+
+.trait td{
+    height: 2px;
+}
+
+.jour{
+    margin-left: 40px;
+}
+
+.lundi{
+    margin-top: -40px;
+}
+
+.mardi{
+}
+
+.mercredi{
+}
+
+.jeudi{
+}
+
+.vendredi{
+}
+
+.samedi{
+}
+
+.dimanche{
+    margin-top: 20px;
+}

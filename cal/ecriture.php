@@ -83,12 +83,53 @@ if ((!is_file("retaille/" . str_pad($_GET["mois"], 2, "0", STR_PAD_LEFT) . "/cal
     }
 }
 
+
 $change = false;
 $tout = false;
 $vide = false;
+
+$photoCliquee = 0;
 if(isset($_GET["change"])){
  	$change = (int)$_GET["change"];
 }
+
+if(isset($_GET["laPhotoCliquee"])){
+ 	$photoCliquee = (int)$_GET["laPhotoCliquee"];
+}
+
+function renameParceQuonSupprime($id){
+	  print "<br> dans le fonction";
+	  $dernierePhoto = "";
+	if($id) {  
+	 $b=1;
+	 $leDernierId = false;
+	 $cheminDir = "retaille/" . str_pad($_GET["mois"], 2, "0", STR_PAD_LEFT);
+		$Dir = opendir("retaille/" . str_pad($_GET["mois"], 2, "0", STR_PAD_LEFT));
+		//je cherche la derniere photo
+		while ($DraftDirectoryElementDansDossier = readdir($Dir))
+		{
+			if ($DraftDirectoryElementDansDossier{0} != ".")
+			{
+				if (((preg_match("/.jpg/", strtolower($DraftDirectoryElementDansDossier)) || preg_match("/.jpeg/", strtolower($DraftDirectoryElementDansDossier)))))
+				{
+					$leDernierId = $b;
+					$b++;
+				}
+			}
+		}
+		//on renomme les photos, celle cliqué doit passer en dernier
+		rename($cheminDir . "/cal" . $id . ".jpg", $cheminDir . "/cal" . $id . "Temp.jpg");
+		print "<br>on veut renommer " .$cheminDir . "/cal" . $id . ".jpg" . " par " . $cheminDir . "/cal" . $id . "Temp.jpg";
+		for($i=($id+1); $i<$b;$i++) {
+			rename($cheminDir . "/cal" . $i . ".jpg", $cheminDir . "/cal" . ($i-1) . ".jpg");
+			print "<br>on veut renommer " .$cheminDir . "/cal" . $i . ".jpg" . " par " . $cheminDir . "/cal" . ($i-1) . ".jpg";
+		}
+		rename($cheminDir . "/cal" . $id . "Temp.jpg", $cheminDir . "/cal" . ($leDernierId) . ".jpg");
+    }
+    print "<br> la derniere photo '". $dernierePhoto."'".$id;
+}
+
+
  
 if(isset($_GET["tout"])){
  	$tout = true;
@@ -132,8 +173,7 @@ print "<br><br> seession ".$_SESSION["leCompteurDimage"];
 //lecture du fichier
 while (! feof($fp))
 { // on parcourt toutes les lignes
-		$ligne = fgets ( $fp, 4096 );
-		
+		$ligne = fgets ( $fp, 4096 );	
 		if ($change) { // on veut changer une photo
 			$onCherche = '$arrayPhotoOuCarre[' . $change . ']';
 			$nouvelleLigne = $onCherche . $ilYaUnePhoto;
@@ -142,6 +182,7 @@ while (! feof($fp))
 				if (strpos ( $ligne, $ilYaUnePhoto ) !== false) {
 					print "<br> il y avait une photo <br>";
 					$nouvelleLigne = $onCherche . $ilNYaPasUnePhoto;
+					renameParceQuonSupprime($photoCliquee);
 				} else {
 					print "<br> il y avait PAS de photo <br>";
 					$limage = "http://" . $_SERVER['HTTP_HOST'] . "/cal/retaille/" . str_pad ( $_GET ["mois"], 2, "0", STR_PAD_LEFT ) . "/cal" . $_SESSION ["leCompteurDimage"] . ".jpg";
@@ -150,7 +191,11 @@ while (! feof($fp))
 						print '<script language="javascript" type="text/javascript">
     						alert("' . $limage . ' N existe PAS !!!");
     						</script>';
-					}
+					}/* else {
+					 print '<script language="javascript" type="text/javascript">
+    						alert("' . $limage . ' EXISTE !!!");
+    						</script>';
+					}*/
 				}
 				$ligne = $nouvelleLigne . "\n";
 			}
@@ -198,8 +243,8 @@ fclose($fp);
  window.opener.location='<?php
 print $onredirigeVers."&tp=".time();
 ?>';
- parent.close();
- </script>
+parent.close();
+</script>
 
 
 
