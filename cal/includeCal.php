@@ -20,13 +20,23 @@ if (isset ( $_GET["montreLaDerniereLigne"] )) {
 }
 $ajouteXLigneGet = "";
 $ajouteXLignes= 0;
+$nom = '/cal/an/'.str_pad ( $moisEncours, 2, "0", STR_PAD_LEFT ).'/jourAvecPhotos.php';
+//On recupere le tableau $arrayPhotoOuCarre dans lequel il y a les jours ou il faut mettre une photo
+//$arrayPhotoOuCarre[1]=true; => il y a une photo a la case 1 
+// ...
+//$arrayPhotoOuCarre[14]=true;  => il n'y a pas de photo a la case 14 
+require $_SERVER['DOCUMENT_ROOT'].$nom; 
 if ("" != $_GET["ajouteXLigne"]) {
 	
 	$ajouteXLignes = ( int ) $_GET ["ajouteXLigne"];
 	$ajouteXLigneGet = "&ajouteXLigne=". $ajouteXLignes;
-} 
-$nom = '/cal/an/'.str_pad ( $moisEncours, 2, "0", STR_PAD_LEFT ).'/jourAvecPhotos.php';
-require $_SERVER['DOCUMENT_ROOT'].$nom;
+} else {
+     //Valeur lue dans le fichier jourAvecPhotos.php
+     $ajouteXLignes=$ajouterUneLigne;
+     if($ajouteXLignes>0) {
+          $ajouteXLigneGet = "&ajouteXLigne=". $ajouteXLignes;
+     }
+}
 
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -347,7 +357,7 @@ for ($iTd=1;$iTd<$nombreDeCase;$iTd++){
 			$classDivImg1 = "divImg3";	
 		}
 		
-		$arrayTdPrint = '<!-- td'.$iTd.' -->    <td'.$dimTd.' ondblclick="javascript:change('.$iTd.', '.$cpt.')"><div class="'; if(($iTd+$x)<=9) {$arrayTdPrint  .=$classDiv1Chiffre;} else {$arrayTdPrint  .=$classDiv2Chiffre;} $arrayTdPrint  .='">'; if((($iTd+$x)>0)&&(($iTd+$x)<=$nbJourDsLeMois[$moisEncours])) $arrayTdPrint  .=($iTd+$x); else {$arrayTdPrint  .= $blanc2chiffres;} $arrayTdPrint  .='</div><div class="'; if(($iTd+$x)<=9) {$arrayTdPrint  .=$classDivImg1;} else {$arrayTdPrint  .=$classDivImg2;} $arrayTdPrint  .='"><!-- img --><img src="/cal/retaille/'. str_pad($moisEncours, 2, "0", STR_PAD_LEFT) . '/cal' . ($cpt++).'.jpg"'.$laDimImage.' /><!-- img --></div></td>';
+		$arrayTdPrint = '<!-- td'.$iTd.' -->    <td'.$dimTd.' ondblclick="javascript:change('.$iTd.', '.$cpt.')"><div class="'; if(($iTd+$x)<=9) {$arrayTdPrint  .=$classDiv1Chiffre;} else {$arrayTdPrint  .=$classDiv2Chiffre;} $arrayTdPrint  .='">'; if((($iTd+$x)>0)&&(($iTd+$x)<=$nbJourDsLeMois[$moisEncours])) $arrayTdPrint  .=($iTd+$x); else {$arrayTdPrint  .= $blanc2chiffres;} $arrayTdPrint  .='</div><div class="'; if(($iTd+$x)<=9) {$arrayTdPrint  .=$classDivImg1;} else {$arrayTdPrint  .=$classDivImg2;} $arrayTdPrint  .='"><!-- img --><img src="/cal/retaille/'. str_pad($moisEncours, 2, "0", STR_PAD_LEFT) . '/cal' . ($cpt++).'.jpg?'.time().'"'.$laDimImage.' /><!-- img --></div></td>';
 		if(($laDimImage == $dimImgPortrait) &&($iTd<8)){
 			$trVideParceQuilYAUnPortraitDansLaPremiereLigne = '<tr>
 				<td colspan="7">&nbsp;</td>
@@ -430,9 +440,11 @@ if ("1" == $fond) {
 	<br />
 <?php
 // affichage des liens vers les mois suivants
+$queryS = preg_replace ('/&ajouteXLigne=[0-9]/', "", $_SERVER ["QUERY_STRING"]); 
+
 for($ii = 1; $ii <= 12; $ii ++) {
 	if ($moisEncours != $ii) {
-		print "<a href='/cal/an/" . str_pad ( $ii, 2, "0", STR_PAD_LEFT ) . "/cal.php?" . str_replace ( "mois=" . $moisEncours, "mois=" . $ii, $_SERVER ["QUERY_STRING"] ) . "'>";
+		print "<a href='/cal/an/" . str_pad ( $ii, 2, "0", STR_PAD_LEFT ) . "/cal.php?" . str_replace ( "mois=" . $moisEncours, "mois=" . $ii, $queryS ) . "'>";
 	}
 	print str_pad ( $ii, 2, "0", STR_PAD_LEFT );
 	if ($moisEncours != $ii) {

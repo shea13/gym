@@ -1,4 +1,5 @@
 <?php
+$ajouterUneLigne=0;
 $arrayPhotoOuCarre[0] = false;
 $arrayPhotoOuCarre[1] = true;
 $arrayPhotoOuCarre[2] = false;

@@ -117,6 +117,7 @@ function renameParceQuonSupprime($id){
 				}
 			}
 		}
+
 		//on renomme les photos, celle cliqué doit passer en dernier
 		rename($cheminDir . "/cal" . $id . ".jpg", $cheminDir . "/cal" . $id . "Temp.jpg");
 		print "<br>on veut renommer " .$cheminDir . "/cal" . $id . ".jpg" . " par " . $cheminDir . "/cal" . $id . "Temp.jpg";
@@ -148,7 +149,7 @@ if (isset ( $_GET ["montreLaDerniereLigne"] )) {
 $ajouteXLigneGet = "";
 $ajouteXLignes= 0;
 if (isset ( $_GET ["ajouteXLigne"] )) {
-	$ajouteXLignes = ( int ) $_GET ["ajouteXLignes"];
+	$ajouteXLignes = ( int ) $_GET ["ajouteXLigne"];
 	$ajouteXLigneGet = "&ajouteXLigne=". $_GET ["ajouteXLigne"];
 }
 $parametresSuite = $montreLaDerniereLigne.$ajouteXLigneGet;
@@ -170,10 +171,11 @@ $ilNYaPasUnePhoto = ' = false;';
 $nouvelleLigne = "";
 
 print "<br><br> seession ".$_SESSION["leCompteurDimage"];
+$ajouterUnLigneInFile = '$ajouterUneLigne=';
 //lecture du fichier
 while (! feof($fp))
 { // on parcourt toutes les lignes
-		$ligne = fgets ( $fp, 4096 );	
+		$ligne = fgets ( $fp, 4096 );      
 		if ($change) { // on veut changer une photo
 			$onCherche = '$arrayPhotoOuCarre[' . $change . ']';
 			$nouvelleLigne = $onCherche . $ilYaUnePhoto;
@@ -198,7 +200,9 @@ while (! feof($fp))
 					}*/
 				}
 				$ligne = $nouvelleLigne . "\n";
-			}
+			} elseif (strpos ( $ligne, $ajouterUnLigneInFile ) !== false) {       
+               $ligne = $ajouterUnLigneInFile.$ajouteXLignes.";\n";  
+            }
 		} elseif ($tout) {	
 			
 			$onCherche = '$arrayPhotoOuCarre';
@@ -222,8 +226,9 @@ while (! feof($fp))
 			if (strpos ( $ligne, $onCherche ) !== false) {
 					$ligne = str_replace($ilYaUnePhoto, $ilNYaPasUnePhoto, $ligne);								
 			}
-		}
-		
+		} elseif (strpos ( $ligne, $ajouterUnLigneInFile ) !== false) {       
+               $ligne = $ajouterUnLigneInFile.$ajouteXLignes.";\n";  
+        }
 		$page .= $ligne; // lecture du contenu de la ligne
 	}
 	

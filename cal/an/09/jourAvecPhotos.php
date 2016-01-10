@@ -1,15 +1,16 @@
 <?php
+$ajouterUneLigne=0;
 $arrayPhotoOuCarre[0] = false;
-$arrayPhotoOuCarre[1] = false;
-$arrayPhotoOuCarre[2] = false;
-$arrayPhotoOuCarre[3] = false;
-$arrayPhotoOuCarre[4] = false;
-$arrayPhotoOuCarre[5] = false;
-$arrayPhotoOuCarre[6] = false;
-$arrayPhotoOuCarre[7] = false;
-$arrayPhotoOuCarre[8] = false;
-$arrayPhotoOuCarre[9] = false;
-$arrayPhotoOuCarre[10] = false;
+$arrayPhotoOuCarre[1] = true;
+$arrayPhotoOuCarre[2] = true;
+$arrayPhotoOuCarre[3] = true;
+$arrayPhotoOuCarre[4] = true;
+$arrayPhotoOuCarre[5] = true;
+$arrayPhotoOuCarre[6] = true;
+$arrayPhotoOuCarre[7] = true;
+$arrayPhotoOuCarre[8] = true;
+$arrayPhotoOuCarre[9] = true;
+$arrayPhotoOuCarre[10] = true;
 $arrayPhotoOuCarre[11] = false;
 $arrayPhotoOuCarre[12] = false;
 $arrayPhotoOuCarre[13] = false;
